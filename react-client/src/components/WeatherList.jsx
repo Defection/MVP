@@ -1,41 +1,147 @@
+// import React from 'react';
+// // import Search from './Search.jsx'
+// // import './styles.css'
+
+// var image
+// // var temperature = 
+
+// const WeatherList = (props) => {
+
+// 	// if(props.items.currently.temperature >32 && props.items.currently.temperature <70){
+// 	// 	image = 'http://static.euronews.com/weather/icons/SVGs/wsymbol_0002_sunny_intervals.svg'
+// 	// }
+// 	if(props.items.currently.temperature >32 && props.items.currently.temperature <70){
+// 		image = 'http://www.tokkoro.com/picsup/3076274-blue-sky_bright_clouds_countryside_cumulus-clouds_field_grass_green-grass_lawn_nature_outdoors_pasture_sky_summer_sunny_sunny-day_weather_wind.jpg'
+// 	}
+// 	if(props.items.currently.temperature<=32){
+// 		image = 'http://hddesktopwallpapers.in/wp-content/uploads/2015/07/snow-wallpaper-leaf.jpg'
+// 	}
+// 	if(props.items.currently.temperature >70){
+// 		image = 'https://i.ytimg.com/vi/5fhnPARz7tg/maxresdefault.jpg'
+// 	}
+
+
+// 	const circle = {
+// 		borderRadius: '50%',
+// 		heigh: '80px',
+// 		paddingTop: '50%',
+// 		width: '500px',
+// 		alignContent: 'center',
+// 		marginLeft: '21%',
+// 		// backgroundColor: 'blue'
+
+// 	}
+
+// 		const statStyle = {
+// 		fontSize: '18px',
+// 		textAlign: 'center',
+// 		borderRadius: 50,
+// 		// marginBottom: '300px'
+// 	}
+
+// 	const statStyle2 = {
+// 		fontSize: '18px',
+// 		textAlign: 'center',
+// 		borderRadius: 50,
+// 		// width: 50,
+// 		paddingLeft: '30%',
+// 		paddingRight: '30%',
+// 		marginBottom: '50px'
+// 	}
+
+// 	const weatherStyle = {
+//       textAlign:'center',
+//       fontSize: '60px'
+//     }
+
+// 	return (
+
+// 	  <div style={{ backgroundImage: `url(${image})` , width: '100%', height: '100%', top: 0, left: 0, position: 'absolute'}} >
+// 	           <h1 style={weatherStyle}>Weather</h1>
+// 	           <li style= {statStyle}>{props.items.currently.temperature}&#176;F</li>
+// 	           <li style= {statStyle}>{props.items.minutely.summary}</li>
+// 	           <li style= {statStyle}>{props.items.hourly.summary}</li>
+// 	           <li style= {statStyle2}>{props.items.daily.summary}</li>
+	      
+// 	  </div>
+
+//  	)
+// }
+
+// export default WeatherList;
+
 import React from 'react';
 // import Search from './Search.jsx'
+// import './styles.css'
+
 var image
 // var temperature = 
 
-const WeatherList = (props) => {
+class WeatherList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      item: ''
+    }
+    this.onChange = this.onChange.bind(this)
+   }
 
-	// if(props.items.currently.temperature >32 && props.items.currently.temperature <70){
-	// 	image = 'http://static.euronews.com/weather/icons/SVGs/wsymbol_0002_sunny_intervals.svg'
-	// }
-	if(props.items.currently.temperature >32 && props.items.currently.temperature <70){
-		image = 'http://static.euronews.com/weather/icons/SVGs/wsymbol_0002_sunny_intervals.svg'
-	}
-	if(props.items.currently.temperature<=32){
-		image = 'https://conceptdraw.com/a1748c3/p17/preview/640/pict--snowflake-weather-vector-stencils-library'
-	}
-	if(props.items.currently.temperature >70){
-		image = 'http://www.journalpioneer.com/media/photologue/photos/cache/tg-23012017-weather-sunny_large.jpg'
+
+  onChange (e) {
+    this.setState({
+      item: e.target.value
+    });
+  }
+
+
+
+ render() {
+ 	const statStyle = {
+		fontSize: '18px',
+		textAlign: 'center',
+		borderRadius: 50,
+		// marginBottom: '300px'
 	}
 
-	return (
-	  <div>
-	       <ul>
-	           <li class = 'Stats'>Current Temperature: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{props.items.currently.temperature}</li>
-	           <li class = 'Stats'>Current Condition:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {props.items.minutely.summary}</li>
-	           <li class = 'Stats'>Hourly Forecast:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {props.items.hourly.summary}</li>
-	           <li class = 'Stats'>Weekly Forcecast:   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {props.items.daily.summary}</li>
-	           <img src = {image} />
-	          
-	      </ul>
+	const statStyle2 = {
+		fontSize: '18px',
+		textAlign: 'center',
+		borderRadius: 50,
+		// width: 50,
+		paddingLeft: '30%',
+		paddingRight: '30%',
+		marginBottom: '50px'
+	}
+
+	const weatherStyle = {
+      textAlign:'center',
+      fontSize: '60px'
+    }
+
+   	if(this.props.items.currently.temperature >32 && this.props.items.currently.temperature <70){
+		image = 'http://www.tokkoro.com/picsup/3076274-blue-sky_bright_clouds_countryside_cumulus-clouds_field_grass_green-grass_lawn_nature_outdoors_pasture_sky_summer_sunny_sunny-day_weather_wind.jpg'
+	}
+	if(this.props.items.currently.temperature<=32){
+		image = 'http://hddesktopwallpapers.in/wp-content/uploads/2015/07/snow-wallpaper-leaf.jpg'
+	}
+	if(this.props.items.currently.temperature >70){
+		image = 'https://i.ytimg.com/vi/5fhnPARz7tg/maxresdefault.jpg'
+	}
+
+    return (
+
+	  <div style={{ backgroundImage: `url(${image})` , width: '100%', height: '100%', top: 0, left: 0, position: 'absolute'}} >
+       <h1 style={weatherStyle}>Weather</h1>
+       <li style= {statStyle}>{this.props.items.currently.temperature}&#176;F</li>
+       <li style= {statStyle}>{this.props.items.minutely.summary}</li>
+       <li style= {statStyle}>{this.props.items.hourly.summary}</li>
+       <li style= {statStyle2}>{this.props.items.daily.summary}</li>
+       <input style = {{position: 'relative', left:'45%'}} value={this.state.item} onChange={this.onChange} />
+       <button style = {{position: 'relative', left:'45%'}} onClick={()=>this.props.onSearch(this.state.item)}> Refresh </button>  
 	  </div>
- 	)
+
+    ) 
+  }
 }
 
 export default WeatherList;
-
-      // temperature: currently.temperature,
-      // condition: minutely.summary,
-      // hourly: hourly.summary,
-      // daily: daily.summary,
-       // <img src={this.}'http://static.euronews.com/weather/icons/SVGs/wsymbol_0002_sunny_intervals.svg'/>

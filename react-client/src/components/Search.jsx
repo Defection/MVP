@@ -1,16 +1,3 @@
-// import React from 'react';
-// import ListItem from './ListItem.jsx';
-
-// const List = (props) => (
-//   <div>
-//     <h4> List Component </h4>
-//     There are { props.items.length } items.
-//     { props.items.map(item => <ListItem item={item}/>)}
-//   </div>
-// )
-
-// export default List;
-
 import React from 'react';
 
 class Search extends React.Component {
@@ -32,6 +19,7 @@ class Search extends React.Component {
   search() {
     this.props.onSearch(this.state.item);
   }
+
 
   render() {
     return (<div>
