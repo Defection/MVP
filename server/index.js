@@ -76,8 +76,8 @@ app.get('/api/forecast', function(req, res) {
   // var lat = '40.750487' 
   // var long = '-73.976401'
   // console.log('latty', req.lat)
-  var lat = req.lat /*|| '28.538336'*/
-  var long =  req.lng /*|| '-81.379234'*/
+  var lat = req.lat /*|| '28.538336'*/ || '40.750487' 
+  var long =  req.lng /*|| '-81.379234'*/ || '-73.976401'
   // var lat   = req.query.latitude;
   // var long  = req.query.longitude;
   var requestUrl = rootUrl + '/' + APIKey + '/' + lat + ',' + long;

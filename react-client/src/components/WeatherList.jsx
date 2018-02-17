@@ -100,6 +100,8 @@ class WeatherList extends React.Component {
 		fontSize: '18px',
 		textAlign: 'center',
 		borderRadius: 50,
+		fontFamily: 'sans-serif',
+		fontWeight: 'bold'
 		// marginBottom: '300px'
 	}
 
@@ -110,16 +112,21 @@ class WeatherList extends React.Component {
 		// width: 50,
 		paddingLeft: '30%',
 		paddingRight: '30%',
-		marginBottom: '50px'
+		marginBottom: '50px',
+		fontFamily: 'sans-serif',
+		fontWeight: 'bold'
 	}
 
 	const weatherStyle = {
       textAlign:'center',
-      fontSize: '60px'
+      fontSize: '60px',
+      fontFamily: 'sans-serif',
+      // backgroundColor: 'green',
+      // borderRadius: '50%'
     }
 
    	if(this.props.items.currently.temperature >32 && this.props.items.currently.temperature <70){
-		image = 'http://www.tokkoro.com/picsup/3076274-blue-sky_bright_clouds_countryside_cumulus-clouds_field_grass_green-grass_lawn_nature_outdoors_pasture_sky_summer_sunny_sunny-day_weather_wind.jpg'
+		image = 'http://static-31.sinclairstoryline.com/resources/media/a66dc365-a7bb-4fc7-8496-c930bbf87579-20170709_helicopterride_seattle_sunnymartini_0101.jpg'
 	}
 	if(this.props.items.currently.temperature<=32){
 		image = 'http://hddesktopwallpapers.in/wp-content/uploads/2015/07/snow-wallpaper-leaf.jpg'
@@ -136,8 +143,8 @@ class WeatherList extends React.Component {
        <li style= {statStyle}>{this.props.items.minutely.summary}</li>
        <li style= {statStyle}>{this.props.items.hourly.summary}</li>
        <li style= {statStyle2}>{this.props.items.daily.summary}</li>
-       <input style = {{position: 'relative', left:'45%'}} value={this.state.item} onChange={this.onChange} />
-       <button style = {{position: 'relative', left:'45%'}} onClick={()=>this.props.onSearch(this.state.item)}> Refresh </button>  
+       <input style = {{position: 'relative', left:'47%', width: '100px', height: '20px', borderRadius: '15px', marginBottom: '10px'}} value={this.state.item} onChange={this.onChange} /> <br></br>
+       <button style = {{position: 'relative', left:'47.2%', width: '100px', height: '20px', borderRadius: '15px',}} onClick={()=>this.props.onSearch(this.state.item)}> Search </button>  
 	  </div>
 
     ) 
@@ -145,3 +152,4 @@ class WeatherList extends React.Component {
 }
 
 export default WeatherList;
+// Temperature:&nbsp;&nbsp;
